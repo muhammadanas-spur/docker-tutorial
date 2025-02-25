@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 style="text-align: center; margin-bottom: 2rem; color: #1f2937; font-size: 2rem;">
+    Task Manager
+  </h1>
+
+  <div class="card">
+    <form (submit)="addWorkItem()">
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="newWorkItemTitle" name="newTaskTitle"
+          placeholder="Add a new task..." required />
+      </div>
+      <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+  </div>
+
+  <div class="task-list">
+    <div *ngFor="let item of workItemList;" class="task-item">
+      <div>
+        <input type="checkbox" [checked]="item.completed" (change)="toggleWorkItem(item)" style="margin-right: 0.5rem" />
+        <span [class.completed]="item.completed">{{ item.title }}</span>
+      </div>
+      <div class="task-actions">
+        <button *ngIf="!item.completed" class="btn btn-primary" (click)="editWorkItem(item)">
+          Edit
+        </button>
+        <button class="btn btn-danger" (click)="deleteWorkItem(item)">
+          Delete
+        </button>
+      </div>
+    </div>
+    <div *ngIf="workItemList.length === 0" class="card" style="text-align: center; color: #6b7280;">
+      No tasks yet. Add one above!
+    </div>
+  </div>
+</div>
