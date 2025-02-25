@@ -1,0 +1,34 @@
+@backendservices_HostAddress = https://localhost:7023
+
+GET {{backendservices_HostAddress}}/api/workitem
+Accept: application/json
+
+###
+
+GET {{backendservices_HostAddress}}/api/workitem/1
+Accept: application/json
+
+###
+
+POST {{backendservices_HostAddress}}/api/workitem
+Content-Type: application/json
+
+{
+  "title": "Second Task",
+  "completed": false
+}
+
+###
+
+PUT {{backendservices_HostAddress}}/api/workitem/1
+Content-Type: application/json
+
+{
+  "title": "First Task (Updated)",
+  "completed": true
+}
+
+###
+
+DELETE {{backendservices_HostAddress}}/api/workitem/1
+Accept: application/json
