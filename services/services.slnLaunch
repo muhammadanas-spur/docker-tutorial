@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "All Services",
+    "Projects": [
+      {
+        "Path": "backendservices\\backendservices.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "anotherbackendservice\\anotherbackendservice.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]
